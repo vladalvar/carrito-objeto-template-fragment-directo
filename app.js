@@ -14,18 +14,19 @@ const agregarAlCarrito = (e) => {
         cantidad: 1
     }
 
-    if(carritoObjeto.hasOwnProperty(producto.titulo)){
-        producto.cantidad = carritoObjeto[producto.titulo].cantidad + 1;
+    const indice = carritoObjeto.findIndex((item) => item.id === producto.id);
+    if(indice === -1){
+        carritoObjeto.push(producto);
+    }else{
+        carritoObjeto[indice].cantidad ++;
     }
-
-    carritoObjeto[producto.titulo] = producto;
-    pintarCarrito(producto);
-    // console.log(carritoObjeto);
+    //console.log(carritoObjeto)
+    pintarCarrito(carritoObjeto);
 };
 
-const pintarCarrito = (producto) => {
+const pintarCarrito = (array) => {
     carrito.textContent = "";
-    Object.values(carritoObjeto).forEach((item) => {
+    array.forEach((item) => {
         const clone = template.content.firstElementChild.cloneNode(true);
         clone.querySelector('.lead').textContent = item.titulo;
         clone.querySelector('.badge').textContent = item.cantidad;
@@ -89,3 +90,18 @@ Botones.forEach((btn) => btn.addEventListener("click", agregarAlCarrito))
 
 // const nuevoTexto = arrayMeses.join();
 // console.log(nuevoTexto);
+
+// const cajitas = document.querySelectorAll('.border');
+
+// cajitas.forEach(caja => {
+//     caja.addEventListener('click', (e) => {
+//         e.stopPropagation();
+//         console.log("Me diste click");
+//     })
+// })
+
+// const formulario =  document.querySelector('form');
+// formulario.addEventListener('submit', e => {
+//     e.preventDefault();
+//     console.log("Mediste Click")
+// })
