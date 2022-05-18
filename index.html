@@ -15,9 +15,11 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="cart-title">Pizza 🍕</h5>
+                        <p class="lead">$100</p>
                         <button 
                         class="btn btn-outline-primary"
                         data-comida="Pizza"
+                        data-precio ="100"
                         >Agregar</button>
                     </div>
                 </div>
@@ -27,9 +29,11 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="cart-title">Pastel 🎂</h5>
+                        <p class="lead">$100</p>
                         <button 
                         class="btn btn-outline-primary"
                         data-comida="Pastel"
+                        data-precio ="500"
                         >Agregar</button>
                     </div>
                 </div>
@@ -39,9 +43,11 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="cart-title">Hot dog 🌭</h5>
+                        <p class="lead">$100</p>
                         <button 
                         class="btn btn-outline-primary"
                         data-comida="Hot dog"
+                        data-precio ="25"
                         >Agregar</button>
                     </div>
                 </div>
@@ -50,16 +56,40 @@
     </main>
 
     <section class="container mt-3">
-        <ul class="list-group" id="carrito"></ul>
+        <ul class="list-group" id="carrito">
+            
+        </ul>
     </section>
 
     <template id="template">
-        <li class="list-group-item d-flex justify-content-between 
-            align-items-center">
-            <span class="lead">Pizza</span>
-            <span class="badge bg-primary rounded-pill">12</span>
+        <li class="list-group-item bg-secondary text-white">
+            <span class="badge bg-primary rounded-pill aling-middle">12</span>
+            <span class="lead aling-middle">Pizza</span>
         </li>
-    </template>    
+         
+        <li class="list-group-item d-flex justify-content-between aling-items-center">
+            <div>
+                <p class="lead mb-0">Total: $<span>300</span></p>
+            </div>
+            <div>
+                <button class="btn btn-sn btn-danger">Quitar</button>
+                <button class="btn btn-sn btn-success">Agregar</button>
+            </div>
+        </li>
+    </template>
+
+    <footer id="footer" class="container mt-3">
+        <template id="templateFooter">
+            <div class="card">
+                <div class="card-body d-flex justify-content-between aling-items-center">
+                    <p class="lead mb-0"> Total $ <span> 1500</span></p>
+                    <button class="btn btn-outline-info">Finalizar compra</button>
+                </div>
+            </div>
+        </template>        
+    </footer>
+
+       
     
 
     <script src="app.js"></script>
